@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ArkanoidSuper"
+run/main_scene="res://PlayField.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Signals="*res://Signals.gd"
+
+[display]
+
+window/size/viewport_width=1200
+window/size/viewport_height=700
+window/size/mode=3
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+
+[layer_names]
+
+2d_physics/layer_1="Ball"
+2d_physics/layer_2="Block"
+2d_physics/layer_3="Death"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

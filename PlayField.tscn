@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://l3i85f44wm65"]
+
+[ext_resource type="PackedScene" uid="uid://cett5fmw15ftx" path="res://Ball.tscn" id="1_n4dwo"]
+[ext_resource type="Script" path="res://PlayField.gd" id="1_wsos6"]
+[ext_resource type="PackedScene" uid="uid://cidbd8viwtvy8" path="res://Raketka.tscn" id="2_byvm2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcs2d"]
+size = Vector2(1204, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhpmx"]
+size = Vector2(50, 715.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p55o3"]
+size = Vector2(53.5, 707.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nvc8"]
+size = Vector2(1213.5, 73)
+
+[node name="PlayField" type="Node2D"]
+script = ExtResource("1_wsos6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(600, 350)
+
+[node name="Ball" parent="." instance=ExtResource("1_n4dwo")]
+position = Vector2(319, 486)
+
+[node name="AreaDeath" type="Area2D" parent="."]
+position = Vector2(597, 713)
+collision_layer = 4
+
+[node name="Death" type="CollisionShape2D" parent="AreaDeath"]
+position = Vector2(0, 27)
+shape = SubResource("RectangleShape2D_xcs2d")
+metadata/_edit_lock_ = true
+
+[node name="Wall" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="WallLeft" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-28, 354)
+shape = SubResource("RectangleShape2D_nhpmx")
+
+[node name="WallRight" type="CollisionShape2D" parent="Wall"]
+position = Vector2(1230, 348)
+shape = SubResource("RectangleShape2D_p55o3")
+
+[node name="Roof" type="CollisionShape2D" parent="Wall"]
+position = Vector2(602.25, -39)
+shape = SubResource("RectangleShape2D_2nvc8")
+
+[node name="Raketka" parent="." instance=ExtResource("2_byvm2")]
+position = Vector2(526, 535)
