@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cidbd8viwtvy8"]
+
+[ext_resource type="Script" path="res://Scripts/Raketka.gd" id="1_c0vys"]
+[ext_resource type="Texture2D" uid="uid://bhxfxnffj7v7n" path="res://spritesheet-breakout.png" id="1_kchvw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_45jth"]
+radius = 13.0
+height = 116.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iptuk"]
+atlas = ExtResource("1_kchvw")
+region = Rect2(30, 64, 52, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ll8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iptuk")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Raketka" type="RigidBody2D"]
+collision_layer = 2
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+script = ExtResource("1_c0vys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_45jth")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(2.375, 2.375)
+sprite_frames = SubResource("SpriteFrames_8ll8y")
+animation = &"Idle"
