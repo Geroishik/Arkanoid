@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ArkanoidSuper"
-run/main_scene="res://PlayField.tscn"
+run/main_scene="res://Scenes/PlayField.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,6 +26,10 @@ window/size/viewport_height=700
 window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
 
 [layer_names]
 

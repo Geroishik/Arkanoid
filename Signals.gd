@@ -1,3 +1,7 @@
 extends Node
 
-signal damage_block()
+signal position_blocks(pos)
+
+signal can_destroy_blockBrick(arr, pos) 
+
+signal destroy_block(posY, posX)
